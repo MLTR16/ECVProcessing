@@ -93,22 +93,15 @@ void draw() {
 
   }
   
+  
   // load updated image onto surface and scale to fit the display width and height
   image(img, 0, 0, width, height);
   
-  
-  textFont(font, 20);
-  text("“Le voyageur contemplant la mer de pixels”", 110, 720);
-  textSize(15);
-  fill(#C2C6D3);
-  text("— Caspar David Friedrich", 210, 740);
-  fill(255);
-  textSize(12);
-  text("Généré en version unique n°" + id + " le " + day + "/" + month + "/" + year + " à " + hour + " heures, " + minute + " minutes et " + second + " secondes.", 75, 780);
+  displayText();
     
   if (!saved && frameCount >= loops) {
     // save img
-    //img.save(imgFileName + "_" + "####.png");
+    img.save(imgFileName + "_" + id + "_" + day + month + year + ".png");
   
     saved = true;
     println("Saved frame " + frameCount);
@@ -128,6 +121,19 @@ void mouseClicked() {
   if (saved) {
     System.exit(0);
   }
+}
+
+void displayText() {
+  
+    textFont(font, 20);
+    text("“Le voyageur contemplant la mer de pixels”", 110, 720);
+    textSize(15);
+    fill(#C2C6D3);
+    text("— Caspar David Friedrich", 210, 740);
+    fill(255);
+    textSize(12);
+    text("Généré en version unique n°" + id + " le " + day + "/" + month + "/" + year + " à " + hour + " heures, " + minute + " minutes et " + second + " secondes.", 75, 780);
+    
 }
 
 void sortRow() {
