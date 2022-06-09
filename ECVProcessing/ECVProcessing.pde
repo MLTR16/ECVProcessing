@@ -14,9 +14,17 @@
 
 int mode = 2;
 
+int day = day();
+int month = month();
+int year = year();
+
+int hour = hour();
+int minute = minute();
+int second = second();
+
 // image path is relative to sketch directory
 PImage img;
-String imgFileName = "pissarro";
+String imgFileName = "caspardavidfriedrich";
 String fileType = "jpg";
 
 int loops = 1;
@@ -32,7 +40,7 @@ int whiteValue = -12345678;
 int blackValue = -3456789;
 // using the brightness value
 // sort all pixels brighter than the threshold
-int brightValue = 127;
+float brightValue = random(20, 150);
 // sort all pixels darker than the threshold
 int darkValue = 223;
 
@@ -57,7 +65,7 @@ void setup() {
   // load image onto surface - scale to the available width,height for display
   image(img, 0, 0, width, height);
   
-    font = createFont("Printvetica.otf", 100);
+  font = createFont("Printvetica.otf", 1);
   
 }
 
@@ -90,10 +98,14 @@ void draw() {
   image(img, 0, 0, width, height);
   
   
-  textSize(100);
-  textFont(font);
-  text("Bonjour", 50, 100); 
-  fill(0);
+  textFont(font, 20);
+  text("“Le voyageur contemplant la mer de pixels”", 110, 720);
+  textSize(15);
+  fill(#C2C6D3);
+  text("— Caspar David Friedrich", 210, 740);
+  fill(255);
+  textSize(12);
+  text("Généré en version unique n°XXX le " + day + "/" + month + "/" + year + " à " + hour + "heures, " + minute + " minutes et " + second + " secondes.", 80, 780);
     
   if (!saved && frameCount >= loops) {
     // save img
