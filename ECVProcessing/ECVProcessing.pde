@@ -1,9 +1,6 @@
 
 /********
 
- ASDF Pixel Sort
- Kim Asendorf | 2010 | kimasendorf.com
- 
  Sorting modes
  0 = white
  1 = black
@@ -21,6 +18,8 @@ int year = year();
 int hour = hour();
 int minute = minute();
 int second = second();
+
+int id = (int) random(10000);
 
 // image path is relative to sketch directory
 PImage img;
@@ -40,7 +39,7 @@ int whiteValue = -12345678;
 int blackValue = -3456789;
 // using the brightness value
 // sort all pixels brighter than the threshold
-float brightValue = random(20, 150);
+float brightValue = random(10, 150);
 // sort all pixels darker than the threshold
 int darkValue = 223;
 
@@ -105,7 +104,7 @@ void draw() {
   text("— Caspar David Friedrich", 210, 740);
   fill(255);
   textSize(12);
-  text("Généré en version unique n°XXX le " + day + "/" + month + "/" + year + " à " + hour + "heures, " + minute + " minutes et " + second + " secondes.", 80, 780);
+  text("Généré en version unique n°" + id + " le " + day + "/" + month + "/" + year + " à " + hour + " heures, " + minute + " minutes et " + second + " secondes.", 75, 780);
     
   if (!saved && frameCount >= loops) {
     // save img
