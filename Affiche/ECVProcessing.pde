@@ -48,6 +48,8 @@ int row = 0;
 int column = 0;
 
   PFont font;
+  import processing.pdf.*;
+
 
 boolean saved = false;
 
@@ -65,6 +67,8 @@ void setup() {
   image(img, 0, 0, width, height);
   
   font = createFont("Printvetica.otf", 1);
+  
+  beginRecord(PDF, imgFileName + "_" + id + "_" + day + month + year + ".pdf");
   
 }
 
@@ -96,18 +100,21 @@ void draw() {
   
   // load updated image onto surface and scale to fit the display width and height
   image(img, 0, 0, width, height);
-  
-  displayText();
     
   if (!saved && frameCount >= loops) {
+    
+    displayText();
+
     // save img
-    img.save(imgFileName + "_" + id + "_" + day + month + year + ".png");
+    //img.save(imgFileName + "_" + id + "_" + day + month + year + ".png");
   
     saved = true;
     println("Saved frame " + frameCount);
     
     // exiting here can interrupt file save, wait for user to trigger exit
     println("Click or press any key to exit...");
+      endRecord();
+
   }
 }
 
@@ -133,6 +140,7 @@ void displayText() {
     fill(255);
     textSize(12);
     text("Généré en version unique n°" + id + " le " + day + "/" + month + "/" + year + " à " + hour + " heures, " + minute + " minutes et " + second + " secondes.", 75, 780);
+    println("Text");
     
 }
 
