@@ -68,7 +68,7 @@ void setup() {
   
   font = createFont("Printvetica.otf", 1);
   
-  beginRecord(PDF, imgFileName + "_" + id + "_" + day + month + year + ".pdf");
+  beginRecord(PDF, imgFileName + "_" + day + month + year + hour + minute + second + ".pdf");
   
 }
 
@@ -139,7 +139,7 @@ void displayText() {
     text("— Caspar David Friedrich", 210, 740);
     fill(255);
     textSize(12);
-    text("Généré en version unique n°" + id + " le " + day + "/" + month + "/" + year + " à " + hour + " heures, " + minute + " minutes et " + second + " secondes.", 75, 780);
+    text("Généré en version unique le " + day + "/" + month + "/" + year + " à " + hour + " heures, " + minute + " minutes et " + second + " secondes.", 90, 780);
     println("Text");
     
 }
